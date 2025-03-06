@@ -11,24 +11,30 @@ class GestorTiendaTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	}
-
-	@BeforeEach
-	void setUp() throws Exception {
-	}
+	
 
 	@Test
 	void testCalcularDescuento() {
-		fail("Not yet implemented");
+		GestorTienda gestortienda = new GestorTienda();
+		assertEquals(0, gestortienda.calcularDescuento(6, 3));  
+        assertEquals(2.5, gestortienda.calcularDescuento(50, 5));  
+        assertEquals(10, gestortienda.calcularDescuento(100, 10)); 
 	}
 
 	@Test
 	void testCategorizarProducto() {
-		fail("Not yet implemented");
+		GestorTienda gestortienda = new GestorTienda();
+		 assertEquals("Económico", gestortienda.categorizarProducto(4));
+	     assertEquals("Estándar", gestortienda.categorizarProducto(27));
+	     assertEquals("Premium", gestortienda.categorizarProducto(96));
 	}
 
 	@Test
 	void testBuscarProducto() {
-		fail("Not yet implemented");
+		GestorTienda gestortienda = new GestorTienda();
+		String[] inventario = {"Galletas","Huevos"};
+		 assertEquals("Galletas", gestortienda.buscarProducto(inventario, "Galletas"));
+	     assertNull(gestortienda.buscarProducto(inventario, "Leche")); 
 	}
 
 }
